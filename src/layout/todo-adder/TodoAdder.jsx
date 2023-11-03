@@ -10,23 +10,28 @@ const TodoAdder = ({ todos, setTodos }) => {
   const [todoname, setTodoname] = useState("")
 
   const [tododata, setTododata] = useState("")
- 
+
   // form-submit
   const handleCreateTodo = e => {
-    const todo = {
-      id: id,
-      todoname: todoname,
-      isCompleted: false,
-      isEdited: false,
-      isEditing: false,
-      date: new Date(),
-      alarm: new Date().getTime() + 200000
+    e.preventDefault()
+
+    if (todoname.trim().length >  1) {
+      const todo = {
+        id: id,
+        todoname: todoname,
+        isCompleted: false,
+        isEdited: false,
+        isEditing: false,
+        date: new Date(),
+        alarm: new Date().getTime() + 200000
+      }
+      setTodos([...todos, todo])
+      setTodoname("")
+      console.log(todoname);
+    } else {
+      console.log(false);
     }
     // (...todos => Bu oldingi ma'lumotni o'chirmaydi)
-    setTodos([...todos, todo])
-    e.preventDefault()
-    console.log(todoname);
-    setTodoname("")
   }
   return (
     <div className="todo-adder">
