@@ -1,0 +1,11 @@
+.todo-list{
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    height: calc(100% - (95px + 57px));
+}
+.todo-list::-webkit-scrollbar{
+    display: none;
+}
